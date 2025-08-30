@@ -14,3 +14,8 @@ jobs:
       name: print current time
     # running some command in linux shell
       run: echo "current time is $(date)"
+    
+    - id: s02
+      name: read file
+    # running some command in linux shell
+      run: cat test.txt
