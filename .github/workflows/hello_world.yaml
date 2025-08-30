@@ -32,4 +32,4 @@ jobs:
       uses: mscoutermarsh/cowsays-action@master
       with:
         text: 'moo moo says!'
-        color: 'magenta'
+        color: 'red'
