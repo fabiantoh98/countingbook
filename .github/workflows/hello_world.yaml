@@ -17,7 +17,7 @@ jobs:
     
     - id: s02
       name: list directory
-      run: ls
+      run: ls -al
     
     - id: s03
       name: read text file
