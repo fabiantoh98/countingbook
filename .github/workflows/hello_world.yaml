@@ -17,5 +17,8 @@ jobs:
     
     - id: s02
       name: list directory
-    # running some command in linux shell
       run: ls
+    
+    - id: s03
+      name: read text file
+      run: cat ./test.txt
