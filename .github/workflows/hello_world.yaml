@@ -12,4 +12,4 @@ jobs:
     steps: 
     - id: s01
     # running some command in linux shell
-    run: echo "current time is $(date)"
+      run: echo "current time is $(date)"
