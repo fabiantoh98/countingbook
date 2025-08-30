@@ -24,14 +24,17 @@ jobs:
     - run: echo "after" & ls -l
     # Install angular cli and install packages
     - id: s04
+      name: install angular cli
       run: npm i -g @angular/cli && npm ci && echo "installed"
     # build angular app
     - id: s05
+      name: build angular app
       run: |
         ng build
-        ls -l dist/countingbook/browser
+    - run: ls -l dist/countingbook/browser
     # Deploy to netlify
-    - name: Deploy to Netlify
+    - id: s06
+      name: Deploy to Netlify
       uses: nwtgck/actions-netlify@v3.0
       with:
         publish-dir: dist/countingbook/browser

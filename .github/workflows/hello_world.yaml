@@ -17,21 +17,21 @@ jobs:
         echo "CURR_TIME=$(date)" >> $GITHUB_OUTPUT
         echo ${{github.ref}}, ${{github.repository}}
 
-    - id: s02
-      name: Checkout repository
-      uses: actions/checkout@v5
+    # - id: s02
+    #   name: Checkout repository
+    #   uses: actions/checkout@v5
 
-    - id: s03
-      name: list directory
-      run: ls -al
+    # - id: s03
+    #   name: list directory
+    #   run: ls -al
     
-    - id: s04
-      name: read text file
-      run: cat ./test.txt
+    # - id: s04
+    #   name: read text file
+    #   run: cat ./test.txt
     
-    - id: s05
-      name: cowsays
-      uses: mscoutermarsh/cowsays-action@master
-      with:
-        text: 'moo moo says ${{steps.s01.outputs.CURR_TIME}}, ${{github.ref}}, ${{github.repository}}'
-        color: 'red'
+    # - id: s05
+    #   name: cowsays
+    #   uses: mscoutermarsh/cowsays-action@master
+    #   with:
+    #     text: 'moo moo says ${{steps.s01.outputs.CURR_TIME}}, ${{github.ref}}, ${{github.repository}}'
+    #     color: 'red'
