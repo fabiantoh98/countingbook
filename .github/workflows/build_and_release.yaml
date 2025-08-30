@@ -1,0 +1,41 @@
+name: build_countingbook_app
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    steps:
+    - id: s01
+      name: print ref and repository
+      run: |
+        echo "github ref name:${{github.ref}}"
+        echo "github repo name: ${{github.repository}}"
+        echo "before" & ls -l
+    # Setup node environment
+    - id: s02
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24
+    - id: s03
+      name: Checkout repository
+      uses: actions/checkout@v5
+    - run: echo "after" & ls -l
+    # Install angular cli and install packages
+    - id: s04
+      run: npm i -g @angular/cli && npm ci && echo "installed"
+    # build angular app
+    - id: s05
+      run: |
+        ng build
+        ls -l dist/countingbook/browser
+    # Deploy to netlify
+    - name: Deploy to Netlify
+      uses: nwtgck/actions-netlify@v3.0
+      with:
+        publish-dir: dist/countingbook/browser
+        production-deploy: true
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_PAC }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_PROJECT_NAME }}

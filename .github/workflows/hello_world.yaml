@@ -19,7 +19,7 @@ jobs:
 
     - id: s02
       name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v5
 
     - id: s03
       name: list directory
