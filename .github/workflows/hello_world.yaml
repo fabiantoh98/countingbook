@@ -16,9 +16,13 @@ jobs:
       run: echo "current time is $(date)"
     
     - id: s02
+      name: Checkout repository
+      uses: actions/checkout@v3
+
+    - id: s03
       name: list directory
       run: ls -al
     
-    - id: s03
+    - id: s04
       name: read text file
       run: cat ./test.txt
