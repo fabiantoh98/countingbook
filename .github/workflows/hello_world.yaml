@@ -26,3 +26,10 @@ jobs:
     - id: s04
       name: read text file
       run: cat ./test.txt
+    
+    - id: s05
+      name: cowsays
+      uses: mscoutermarsh/cowsays-action@master
+      with:
+        text: 'moo moo says!'
+        color: 'magenta'
