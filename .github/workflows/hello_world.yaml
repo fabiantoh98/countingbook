@@ -13,7 +13,9 @@ jobs:
     - id: s01
       name: print current time
     # running some command in linux shell
-      run: echo "CURR_TIME=$(date)" >> $GITHUB_OUTPUT
+      run: |
+        echo "CURR_TIME=$(date)" >> $GITHUB_OUTPUT
+        echo ${{github.ref}}, ${{github.repository}}
 
     - id: s02
       name: Checkout repository
@@ -31,5 +33,5 @@ jobs:
       name: cowsays
       uses: mscoutermarsh/cowsays-action@master
       with:
-        text: 'moo moo says ${{steps.s01.outputs.CURR_TIME}}'
+        text: 'moo moo says ${{steps.s01.outputs.CURR_TIME}}, ${{github.ref}}, ${{github.repository}}'
         color: 'red'
