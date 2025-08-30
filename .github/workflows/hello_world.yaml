@@ -16,6 +16,6 @@ jobs:
       run: echo "current time is $(date)"
     
     - id: s02
-      name: read file
+      name: list directory
     # running some command in linux shell
-      run: cat test.txt
+      run: ls
